@@ -6,6 +6,7 @@ import {
     setWinningNumbersSet, 
     setNumbersChosenSet
 } from '../store/actionTypes';
+import PropTypes from 'prop-types';
 
 const WinningCombination = props => {
     const getScore = () => {
@@ -76,5 +77,14 @@ const mapDispatchToProps = dispatch => ({
         value
     })
 });
+
+WinningCombination.propTypes = {
+    chosenNumbers: PropTypes.array.isRequired,
+    winningNumbers: PropTypes.array.isRequired,
+    setNumbersChosenSet: PropTypes.func.isRequired,
+    setWinningNumbersSet: PropTypes.func.isRequired,
+    setChosenNumbers: PropTypes.func.isRequired,
+    setWinningNumbers: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(WinningCombination));

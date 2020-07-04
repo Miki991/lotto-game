@@ -1,6 +1,7 @@
 import React from 'react';
 import './Homepage.scss';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import AllNumbers from '../../components/AllNumbers';
 import Chosen from '../../components/Chosen';
@@ -58,4 +59,10 @@ const mapStateToProps = state => ({
     winningNumbersSet: state.winningNumbersSet
 });
 
-export default connect(mapStateToProps, null)(Homepage);
+Homepage.propTypes = {
+    allNumbers: PropTypes.array.isRequired,
+    numbersChosenSet: PropTypes.bool.isRequired,
+    winningNumbersSet: PropTypes.bool.isRequired,
+};
+
+export default connect(mapStateToProps, null)(React.memo(Homepage));

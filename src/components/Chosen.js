@@ -1,6 +1,7 @@
 import React from 'react';
 import { setNumberClass } from '../appUtils';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const Chosen = props => (
     <div className="chosen-numbers-section">
@@ -18,5 +19,9 @@ const Chosen = props => (
 const mapStateToProps = state => ({
     chosenNumbers: state.chosenNumbers
 });
+
+Chosen.propTypes = {
+    chosenNumbers: PropTypes.array.isRequired
+};
 
 export default connect(mapStateToProps, null)(React.memo(Chosen));

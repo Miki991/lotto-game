@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setWinningNumbers, setWinningNumbersSet } from '../store/actionTypes';
+import PropTypes from 'prop-types';
 
 const ButtonGetWinningCombination = props => {
     const getWinningCombination = () => {
@@ -28,6 +29,12 @@ const mapDispatchToProps = dispatch => ({
         type: setWinningNumbersSet,
         value
     })
-})
+});
+
+ButtonGetWinningCombination.propTypes = {
+    getRandomNumbers: PropTypes.func.isRequired,
+    setWinningNumbers: PropTypes.func.isRequired,
+    setWinningNumbersSet: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(React.memo(ButtonGetWinningCombination));

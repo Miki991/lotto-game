@@ -11,4 +11,4 @@ const Error = () => (
     </div>
 )
 
-export default Error;
+export default React.memo(Error);

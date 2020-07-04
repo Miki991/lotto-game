@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAllNumbers } from './store/actionTypes';
+import PropTypes from 'prop-types';
 
 import Homepage from './pages/Homepage/Homepage';
 import Error from './pages/Error/Error';
@@ -40,5 +41,9 @@ const mapDispatchToProps = dispatch => {
     })
   }
 }
+
+App.propTypes = {
+  setAllNumbers: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(App);
