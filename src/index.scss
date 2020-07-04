@@ -1,0 +1,22 @@
+$lightgray: lightgray;
+
+// Styling scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $lightgray;
+
+  &:hover {
+    background: $lightgray;
+  }
+}
+
+* {
+  font-family: "Lato", sans-serif;
+}

@@ -1,0 +1,35 @@
+@import '../../styleUtils.scss';
+
+.error-page {
+    min-height: 100vh;
+    height: -webkit-fill-available;
+    padding: 10px;
+    @include flexCentered();
+    @include flexColumn();
+
+    p.non-existing-page,
+    a {
+        display: block;
+        text-align: center;
+    }
+
+    p.non-existing-page {
+        margin-bottom: 20px;
+        font-family: 'Modak', cursive;
+        font-size: 30px;
+        font-weight: normal;
+        color: $primary;
+    }
+
+    a {
+        text-decoration: none;
+        color: $blue;
+        font-weight: bold;
+
+        &:hover,
+        &:active,
+        &:visited {
+            color: $blue;
+        }
+    }
+}

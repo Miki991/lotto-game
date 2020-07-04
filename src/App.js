@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setAllNumbers } from './store/actionTypes';
 
-function App() {
+import Homepage from './pages/Homepage/Homepage';
+import Error from './pages/Error/Error';
+
+
+const App = (props) => {
+  const { setAllNumbers } = props;
+
+  useEffect(() => {
+    // Setting all numbers available for Lotto game as soon as application is loaded
+    let arr = [];
+    for (let i = 1; i < 50; i++) {
+      arr.push(i);
+    }
+
+    setAllNumbers(arr);
+  }, [setAllNumbers]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path='/' component={Homepage} exact />
+          <Route component={Error} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    setAllNumbers: (allNumbers) => dispatch({
+      type: setAllNumbers, 
+      allNumbers
+    })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

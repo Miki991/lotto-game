@@ -1,0 +1,135 @@
+@import '../../styleUtils.scss';
+
+.homepage {
+    padding: 10px;
+
+    h1,
+    h2 {
+        margin: 0 auto 20px;
+        text-align: center;
+        font-family: 'Modak', cursive;
+        font-weight: normal;
+        color: $primary;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 50px;
+    }
+
+    .nums-wrapper {
+        margin-bottom: 30px;
+        @include flex();
+        @include flexCentered();
+        @include flexWrap(wrap);
+
+        &.winning-numbers {
+            margin-bottom: 20px;
+        }
+    }
+
+    .num {
+        margin: 5px;
+        color: white;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        @include flexCentered();
+
+        &.gray {
+            background: gray;
+        }
+
+        &.pink {
+            background: $pink;
+        }
+
+        &.blue {
+            background: $blue;
+        }
+
+        &.green {
+            background: $green;
+        }
+
+        &.yellow {
+            background: $yellow;
+        }
+
+        &.winning-number {
+            background: red;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+        @include transition(.2s);
+
+        &.play-btn {
+            display: block;
+            margin: 20px auto 30px;
+            color: white;
+            background: $primary;
+        }
+
+        &:hover {
+            background-color: #464646;
+        }
+
+        &:disabled {
+            opacity: .6;
+            cursor: default;
+
+            &:hover {
+                background-color: $pink;
+            }
+        }
+    }
+
+   .score {
+       text-align: center;
+       font-weight: bold;
+       font-size: 1.3rem;
+   }
+}
+
+/* RESPONSIVE */ 
+@media(max-width: 800px) {
+    .homepage {
+        h1 {
+            font-size: 3.3rem;
+        }
+    
+        h2 {
+            font-size: 3rem;
+        }
+    
+        .num {
+            width: 45px;
+            height: 45px;
+    
+            span {
+                font-size: 0.8rem;
+            }
+        }
+    
+        button {
+            font-size: 0.8rem;
+        }
+    
+       .score {
+           font-size: 1rem;
+       }
+    }
+}
